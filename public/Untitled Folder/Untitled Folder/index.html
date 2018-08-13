@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temp&Humid</title>
+  <!-- update the version number as needed -->
+  <!-- <script src="js/firebase.js"></script> -->
+        
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    
+</head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">login</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->        
+      </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Temp&Humid</span>
+        <nav class="mdl-navigation">
+        <!-- <a class="mdl-navigation__link" href="http://www.facebook.com/ANTDPU">Dash Board</a> -->
+        <a class="mdl-navigation__link" href="login.html">Login</a>
+        <a class="mdl-navigation__link" href="chart.html" id="sign-out">Chart</a>
+        
+        </nav>
+       
+      </div>
+      
+
+  <main class="mdl-layout__content" id="overview">
+      <div class="page-content" >  
+      <!-- Your content goes here -->
+      <p id="contact-success" class="text-success lead"></p>
+      <p id="contact-error" class="text-danger lead"></p>
+      <div align="center" style="padding-top: 20px;">
+      <div id="contact-form" role="form" onsubmit="return sendData(this)">
+        <!-- <table class="mdl-data-table mdl-js-data-table"> -->
+        <table FRAME =”VOID”  >
+        <thead>
+          <tr>
+            <td>User name :</td>
+            <td>
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="username">
+                <!-- <label class="mdl-textfield__label" for="unit">Your Unit Name...</label> -->
+              </div>
+            </td>
+          </tr>
+          <tr>
+              <td>Password :</td>
+              <td>
+                <div class="mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" id="password">
+                  <!-- <label class="mdl-textfield__label" for="ssid">Your wifi ssid...</label> -->
+                </div>
+              </td>
+          </tr>
+          
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+      </div>
+  
+      </div>
+
+      <br />
+      <center>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="signup" onclick="saveData()" type="submit" >SIGN UP</button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="login" onclick="signIn()" type="submit" >LOGIN</button>
+          
+      </center>
+      <br />
+      </div>
+
+  </main>
+  
+<script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDpEDb13yIOHp55aEQqH07ud5C-jrNMdUo",
+    authDomain: "temp-humid-ca49e.firebaseapp.com",
+    databaseURL: "https://temp-humid-ca49e.firebaseio.com",
+    projectId: "temp-humid-ca49e",
+    storageBucket: "temp-humid-ca49e.appspot.com",
+    messagingSenderId: "523577817451"
+  };
+  firebase.initializeApp(config);
+
+var rootRef = firebase.database().ref().child('infos');
+
+</script>
+
+<script src="index.js"></script>
+
+</body>
+</html>
